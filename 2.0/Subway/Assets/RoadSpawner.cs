@@ -10,15 +10,16 @@ public class RoadSpawner : MonoBehaviour
     public float startblockxpos;
    public float blockxPos = 0;
    public int blocksCount = 7;
-   float blockLength = 0;
+  public float blockLength = 0;
     int safe = 120;
     public Transform playertransform;
     List<GameObject> CurrentBlocks = new List<GameObject>();
     void Start()
     {
         blockxPos = StartBlock.transform.position.x;
-        blockLength = StartBlock.GetComponent<BoxCollider>().bounds.size.x;
-        startblockxpos = playertransform.transform.position.x + 27;
+      //  blockLength = 90;
+        
+        startblockxpos = playertransform.transform.position.x + 40;
         for(int i = 0; i < blocksCount; i++)
         {
             SpawnBlock();
@@ -35,7 +36,7 @@ public class RoadSpawner : MonoBehaviour
 
     void Check()
     {
-        if(CurrentBlocks[0].transform.position.x - playertransform.position.x < -40)
+        if(CurrentBlocks[0].transform.position.x - playertransform.position.x < -70)
         {
             SpawnBlock();
             DestroyBlock();

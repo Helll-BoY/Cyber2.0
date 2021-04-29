@@ -16,6 +16,6 @@ public class Chet : MonoBehaviour
     void Update()
     {
         x +=  Time.deltaTime * 3;
-        text.text = ((int)x).ToString();
+   //     text.text = ((int)x).ToString();
     }
 }
