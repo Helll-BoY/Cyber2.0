@@ -47,10 +47,17 @@ public class Mov : MonoBehaviour
 
            
         }
+        
         else
         {
             gravity += Physics.gravity *Time.deltaTime *  3;
           //  anim.SetBool("inAir", false);
+        }
+
+        if(Input.GetKey(KeyCode.S))
+        {
+            anim.SetBool("slide", true);
+            StartCoroutine(a());
         }
       //  moveVec.x = speed;
         moveVec += gravity;
@@ -89,10 +96,15 @@ public class Mov : MonoBehaviour
     }
     public IEnumerator o()
     {
-        yield return new WaitForSeconds((float)1);
+        yield return new WaitForSeconds((float)0.9);
         anim.SetBool("inAir", false);
     }
-    
+    public IEnumerator a()
+    {
+        yield return new WaitForSeconds((float)0.8);
+        anim.SetBool("slide", false);
+    }
+
 }
 
 
