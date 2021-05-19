@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.SceneManagement;
 public class Mov : MonoBehaviour
 {
 
@@ -30,13 +30,20 @@ public class Mov : MonoBehaviour
 
     public void  OnTriggerEnter (Collider collision)
     {
-      //  Debug.Log(1);
-      //  Destroy(gameObject);
+         
+        gameObject.SetActive(false);
+        SceneManager.LoadScene(0);
     }
     void Update()
     {
-        if(_characterController.isGrounded)
+       
+        if (_characterController.isGrounded)
         {
+            if (Input.GetKey(KeyCode.S))
+            {
+                anim.SetBool("slide", true);
+                Invoke("a", 0.9f);
+            }
             gravity = Vector3.zero;
             if(Input.GetAxisRaw("Vertical") > 0)
             {
@@ -54,11 +61,7 @@ public class Mov : MonoBehaviour
           //  anim.SetBool("inAir", false);
         }
 
-        if(Input.GetKey(KeyCode.S))
-        {
-            anim.SetBool("slide", true);
-            StartCoroutine(a());
-        }
+
       //  moveVec.x = speed;
         moveVec += gravity;
         moveVec *= Time.deltaTime;
@@ -99,9 +102,9 @@ public class Mov : MonoBehaviour
         yield return new WaitForSeconds((float)0.9);
         anim.SetBool("inAir", false);
     }
-    public IEnumerator a()
+    public void a()
     {
-        yield return new WaitForSeconds((float)0.8);
+      
         anim.SetBool("slide", false);
     }
 
