@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.SceneManagement;
 public class Mov : MonoBehaviour
 {
 
     private CharacterController _characterController;
     private Vector3 moveVec, gravity;
+
+    public GameObject scr;
 
     public float speed, jumpSpeed;
     public Animator anim;
@@ -23,20 +25,28 @@ public class Mov : MonoBehaviour
     {
         
         _characterController = GetComponent<CharacterController>();
-        moveVec = new Vector3(1, 0, 0);
+     
         gravity = Vector3.zero;
         anim = GetComponent<Animator>();
     }
 
     public void  OnTriggerEnter (Collider collision)
     {
-      //  Debug.Log(1);
-      //  Destroy(gameObject);
+         
+     //   gameObject.SetActive(false);
+        //   SceneManager.LoadScene(0);
+     
     }
     void Update()
     {
-        if(_characterController.isGrounded)
+       
+        if (_characterController.isGrounded)
         {
+            if (Input.GetKey(KeyCode.S))
+            {
+                anim.SetBool("slide", true);
+                Invoke("a", 0.9f);
+            }
             gravity = Vector3.zero;
             if(Input.GetAxisRaw("Vertical") > 0)
             {
@@ -54,11 +64,7 @@ public class Mov : MonoBehaviour
           //  anim.SetBool("inAir", false);
         }
 
-        if(Input.GetKey(KeyCode.S))
-        {
-            anim.SetBool("slide", true);
-            StartCoroutine(a());
-        }
+
       //  moveVec.x = speed;
         moveVec += gravity;
         moveVec *= Time.deltaTime;
@@ -75,8 +81,10 @@ public class Mov : MonoBehaviour
                 but = false;
 
                 laneNumber += (int)Mathf.Sign(input);
+             //   Debug.Log(laneNumber);
                 laneNumber = Mathf.Clamp(laneNumber, 0, lanesCount);
              //   Debug.Log(laneNumber);
+                //   Debug.Log(laneNumber);
             }
 
             
@@ -88,7 +96,7 @@ public class Mov : MonoBehaviour
         }
         _characterController.Move(moveVec);
         Vector3 newPos = transform.position;
-
+       //s Debug.Log(laneNumber * laneDistance);
         newPos.z = Mathf.Lerp(newPos.z, firstsLanePos + (laneNumber * laneDistance), Time.deltaTime * sideSpeed);
 
 
@@ -96,12 +104,12 @@ public class Mov : MonoBehaviour
     }
     public IEnumerator o()
     {
-        yield return new WaitForSeconds((float)0.9);
+        yield return new WaitForSeconds((float)0.85f);
         anim.SetBool("inAir", false);
     }
-    public IEnumerator a()
+    public void a()
     {
-        yield return new WaitForSeconds((float)0.8);
+      
         anim.SetBool("slide", false);
     }
 
