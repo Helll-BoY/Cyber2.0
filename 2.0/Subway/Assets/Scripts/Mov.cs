@@ -8,6 +8,8 @@ public class Mov : MonoBehaviour
     private CharacterController _characterController;
     private Vector3 moveVec, gravity;
 
+    public GameObject scr;
+
     public float speed, jumpSpeed;
     public Animator anim;
     private int laneNumber = 1,
@@ -23,7 +25,7 @@ public class Mov : MonoBehaviour
     {
         
         _characterController = GetComponent<CharacterController>();
-        moveVec = new Vector3(1, 0, 0);
+     
         gravity = Vector3.zero;
         anim = GetComponent<Animator>();
     }
@@ -31,8 +33,9 @@ public class Mov : MonoBehaviour
     public void  OnTriggerEnter (Collider collision)
     {
          
-        gameObject.SetActive(false);
-        SceneManager.LoadScene(0);
+     //   gameObject.SetActive(false);
+        //   SceneManager.LoadScene(0);
+     
     }
     void Update()
     {
@@ -78,8 +81,10 @@ public class Mov : MonoBehaviour
                 but = false;
 
                 laneNumber += (int)Mathf.Sign(input);
+             //   Debug.Log(laneNumber);
                 laneNumber = Mathf.Clamp(laneNumber, 0, lanesCount);
              //   Debug.Log(laneNumber);
+                //   Debug.Log(laneNumber);
             }
 
             
@@ -91,7 +96,7 @@ public class Mov : MonoBehaviour
         }
         _characterController.Move(moveVec);
         Vector3 newPos = transform.position;
-
+       //s Debug.Log(laneNumber * laneDistance);
         newPos.z = Mathf.Lerp(newPos.z, firstsLanePos + (laneNumber * laneDistance), Time.deltaTime * sideSpeed);
 
 
@@ -99,7 +104,7 @@ public class Mov : MonoBehaviour
     }
     public IEnumerator o()
     {
-        yield return new WaitForSeconds((float)0.9);
+        yield return new WaitForSeconds((float)0.85f);
         anim.SetBool("inAir", false);
     }
     public void a()

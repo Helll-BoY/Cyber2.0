@@ -137,7 +137,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!114 &148298602
 MonoBehaviour:
@@ -199,7 +199,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!114 &543801718
 MonoBehaviour:
@@ -264,7 +264,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!108 &910773023
 Light:
@@ -360,7 +360,7 @@ GameObject:
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!81 &963194226
 AudioListener:
@@ -529,7 +529,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!108 &1308702453
 Light:
@@ -621,6 +621,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1256093442512822, guid: adb55fed5a5012b458c398a0b618390c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802244790182692, guid: adb55fed5a5012b458c398a0b618390c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4737365782299246, guid: adb55fed5a5012b458c398a0b618390c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 176
@@ -694,7 +702,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 0
 --- !u!114 &1444588283
 MonoBehaviour:
@@ -708,6 +716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbdfaaeabc0aa6f42923c95a89131a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scr: {fileID: 0}
   speed: 20
   jumpSpeed: 15
   anim: {fileID: 0}
@@ -839,7 +848,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &1850204248
 Transform:
@@ -1087,6 +1096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450651921219873}
   - component: {fileID: 919132147712285596}
+  - component: {fileID: 919132147712285599}
   - component: {fileID: 919132147712285598}
   - component: {fileID: 919132147712285597}
   m_Layer: 0
@@ -1145,12 +1155,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbdfaaeabc0aa6f42923c95a89131a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scr: {fileID: 0}
   speed: 20
   jumpSpeed: 15
   anim: {fileID: 0}
   firstsLanePos: -3
   laneDistance: 3
   sideSpeed: 11.73
+--- !u!114 &919132147712285599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147712285595}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4941a818cf24538438e4e0fcac503de9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugWithArrowKeys: 1
+  scr: {fileID: 0}
+  speed: 0
+  jumpSpeed: 15
+  anim: {fileID: 0}
+  firstsLanePos: -3
+  laneDistance: 3
+  sideSpeed: 108.67
 --- !u!1 &1082271958997514432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,10 +1344,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 890812844603456203, guid: 05cdbbef97db7c646a3ad403577d862b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542692189897050360, guid: 05cdbbef97db7c646a3ad403577d862b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2542692191075463265, guid: 05cdbbef97db7c646a3ad403577d862b,
         type: 3}
       propertyPath: m_Name
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542692191075463265, guid: 05cdbbef97db7c646a3ad403577d862b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2542692191075463269, guid: 05cdbbef97db7c646a3ad403577d862b,
         type: 3}

@@ -22,7 +22,13 @@ public class RoadSpawner : MonoBehaviour
 
     public float gamescore;
 
+    public static RoadSpawner Instance;
+
     public Vector3 pr;
+
+    private void Awake() {
+        Instance = this;
+    }
     void Start()
     {
         blockxPos = StartBlock.transform.position.x;
